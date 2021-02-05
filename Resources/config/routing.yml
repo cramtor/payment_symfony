@@ -1,0 +1,7 @@
+cramtor_payline_notification:
+    path:     /payline/notification
+    controller: cramtor\PaylineBundle\Controller\PaylineController::paymentNotificationAction
+
+cramtor_payline_back_to_shop:
+    path:     /payline/back-to-shop
+    controller: cramtor\PaylineBundle\Controller\PaylineController::backToShopAction

@@ -1,0 +1,36 @@
+language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+php:
+  - 7.2
+  - 7.3
+
+branches:
+  only:
+    - master
+    - /^\d+\.\d+$/
+
+matrix:
+  include:
+    - php: 7.2
+      env: SYMFONY_VERSION='^4.4'
+    - php: 7.3
+      env: SYMFONY_VERSION='^4.4'
+    - php: 7.2
+      env: SYMFONY_VERSION='^5.0'
+    -   php: 7.3
+        env: SYMFONY_VERSION='^5.0'
+
+before_install:
+  - sh -c 'if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony=$SYMFONY_VERSION; fi;'
+
+before_script:
+  - composer update
+
+script:
+  - vendor/bin/phpunit
