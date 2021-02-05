@@ -1,7 +1,4 @@
-Integrates [Payline payment solution](http://www.payline.com/) with Symfony.
-
-
-## Features
+# Features
 
 * Service integration and simple semantic configuration
 * Simplified API for web payments
